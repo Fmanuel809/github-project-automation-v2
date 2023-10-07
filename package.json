@@ -1,5 +1,5 @@
 {
-	"name": "github-project-automation-plus",
+	"name": "github-project-automation-v2",
 	"version": "0.8.1",
 	"description": "🤖 Automate GitHub Project cards with any webhook event",
 	"private": true,
@@ -11,7 +11,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/alex-page/github-project-automation-plus.git"
+		"url": "git+https://github.com/Fmanuel809/github-project-automation-v2.git"
 	},
 	"keywords": [
 		"github-actions",
