@@ -25,8 +25,8 @@ const projectQuery = (url, eventName, project) =>
 				  name: title
 				  id
 				  columns: field(name: "Status") {
-					fieldId: id
 					... on ProjectV2SingleSelectField {
+					  fieldId: id
 					  options {
 						id
 						name
@@ -42,8 +42,8 @@ const projectQuery = (url, eventName, project) =>
 					  name: title
 					  id
 					  columns: field(name: "Status") {
-						fieldId: id
 						... on ProjectV2SingleSelectField {
+						  fieldId: id
 						  options {
 							id
 							name
