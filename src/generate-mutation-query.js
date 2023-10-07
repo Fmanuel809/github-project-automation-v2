@@ -18,8 +18,8 @@ const generateMutationQuery = (
 ) => {
   // Get fieldId from ProjectV2 Data
   const fieldId =
-    data.repository?.projects?.nodes?.columns?.id ||
-    data.repository?.owner?.projects?.nodes?.columns?.id;
+    data.repository?.projects?.nodes[0]?.columns?.fieldId ||
+    data.repository?.owner?.projects?.nodes[0]?.columns?.fieldId;
 
   // Convert data of projectV2 in classic project
   if (data.repository.projects) {
@@ -27,7 +27,7 @@ const generateMutationQuery = (
       (project) => {
         project.name = project.name;
         project.id = project.id;
-        project.columns = project.columns.options;
+        project.columns.nodes = project.columns.options;
         return project;
       }
     );
@@ -35,13 +35,14 @@ const generateMutationQuery = (
 
   // Convert data of projectV2Owner in classic project owner
   if (data.repository.owner && data.repository.owner.projects) {
-    data.repository.owner.projects.nodes =
-      data.repository.owner.projects.nodes.map((project) => {
+    data.repository.owner.projects.nodes = data.repository.owner.projects.nodes.map(
+      (project) => {
         project.name = project.name;
         project.id = project.id;
-        project.columns = project.columns.options;
+        project.columns.nodes = project.columns.options;
         return project;
-      });
+      }
+    );
   }
 
   // All the projects found in organisation and repositories
